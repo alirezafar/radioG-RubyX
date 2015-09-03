@@ -2,9 +2,9 @@
 @import "bootstrap";
 
 body{
-	
+	background-img: url("images/rgDarkFloral3.jpg");
 	padding-top: 80px;
-	background: #111;
+	
 }
 #logo{
 	color: #fff;
@@ -39,4 +39,7 @@ body{
 .jumbotron {
 	height:350px;
 
+}
+.box {
+	background: #3f3f3f;
 }
