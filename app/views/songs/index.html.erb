@@ -1,0 +1,17 @@
+<h1>Radio Gramophone Songs Directory</h1>
+<hr/>
+
+<% @songs.each do |song| %>
+  <div class="row">
+    <div class="col-md-2">
+    <section class="artist_info center"></section>
+    </div>
+
+    <div class="col-lg-8 well">
+      <h4><%= link_to song.songtitle, "" %></h4>
+      <p><span class='quiet'><small> <%= time_ago_in_words(song.created_at) %> ago</small> </p>
+    </div>
+
+
+  </div>
+<% end %>
