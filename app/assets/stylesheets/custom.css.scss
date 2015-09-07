@@ -2,9 +2,10 @@
 @import "bootstrap";
 
 body{
-	background-img: url("images/rgDarkFloral3.jpg");
+	background-color: #131313;
+//	background-image: url("layout/rgDarkFloral3.jpg");
 	padding-top: 80px;
-	
+
 }
 #logo{
 	color: #fff;
@@ -14,14 +15,14 @@ body{
 	margin-right:15px;
 }
 #logo h5 {
-	
+
 	letter-spacing: 2px;
 	line-height: 1px;
 
 }
 
 .nav-dark{
-	background:#232323;
+	background:#020202;
 }
 .nav-item{
 	color:#fff;
@@ -33,7 +34,12 @@ body{
 }
 
 .radioplayerheader{
-	text-align:center;	
+	text-align:center;
+	background-image: url("layout/rg_playerArtWork.png");
+	margin-top:25px;
+	margin-bottom: 10px;
+	padding-top:0px;
+	padding-bottom: 10px;
 }
 
 .jumbotron {
@@ -42,4 +48,18 @@ body{
 }
 .box {
 	background: #3f3f3f;
+}
+
+.art-title{
+	letter-spacing: "+3px";
+	text-transform: uppercase;
+}
+
+.semi-white{
+	color: #cdcdcd;
+}
+
+.white{
+
+	color: #fff;
 }

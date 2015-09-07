@@ -1,17 +1,17 @@
-<h1>Radio Gramophone Songs Directory</h1>
+<h3 class="white">Music Directory</h3>
 <hr/>
+<%= video_tag("rg_RanaMansour_BooyeEidi.mp4", size: "460x250", poster: "music/0001.jpg", controls: true, autobuffer: true) %>
+<div class="row">
+  <% @songs.each do |song| %>
 
-<% @songs.each do |song| %>
-  <div class="row">
-    <div class="col-md-2">
-    <section class="artist_info center"></section>
+  <div class="col-lg-3 col-md-3 col-sm-4 portfolio-item">
+    <a href="#">
+      <%= image_tag("music/"+song.artworkurl, size: "250x250", class: "img-responsive") %>
+    </a>
+    <h3>
+      <%= link_to(song.songtitle, "", class: "art-title white") %>
+    </h3>
+    <p><span class="semi-white"><small> <%= time_ago_in_words(song.created_at) %> ago</small> </p>
     </div>
-
-    <div class="col-lg-8 well">
-      <h4><%= link_to song.songtitle, "" %></h4>
-      <p><span class='quiet'><small> <%= time_ago_in_words(song.created_at) %> ago</small> </p>
-    </div>
-
-
+    <% end %>
   </div>
-<% end %>
