@@ -9,7 +9,7 @@
       <%= image_tag("music/"+song.artworkurl, size: "250x250", class: "img-responsive") %>
     </a>
     <h3>
-      <%= link_to(song.songtitle, "", class: "art-title white") %>
+      <%= link_to(song.songtitle, song_path(song), class: "art-title white") %>
     </h3>
     <p><span class="semi-white"><small> <%= time_ago_in_words(song.created_at) %> ago</small> </p>
     </div>
