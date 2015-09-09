@@ -1,0 +1,35 @@
+<p>
+<h1>Publish a Single Music</h1>
+</p></br></br>
+
+<div class="row">
+<div class="well col-md-10 col-md-offset-1">
+
+<%= form_for @song do |f| %>
+
+<%= f.label :Title %>
+<%= f.text_field :songtitle %>
+
+<%= f.label :Format %>
+<%= f.text_field :format %>
+
+<%= f.label :ReleaseDate %>
+<%= f.text_field :releasedate %>
+
+<%= f.label :ArtworkURL %>
+<%= f.text_field :artworkurl %>
+
+<%= f.label :Filename %>
+<%= f.text_field :filename %>
+
+<%= f.label :Artist %>
+<%= f.text_field :artist_id %>
+
+<%= f.label :Lyric %>
+<%= f.text_area :lyric, rows: 10 %>
+
+<%= f.submit 'Submit Song', class: "btn btn-success" %>
+
+<% end %>
+</div>
+</div>

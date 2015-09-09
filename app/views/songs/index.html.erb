@@ -1,12 +1,11 @@
+<%= render 'layouts/header1' %>
 <h3 class="white">Music Directory</h3>
 <hr/>
-<%= video_tag("rg_RanaMansour_BooyeEidi.mp4", size: "460x250", poster: "music/0001.jpg", controls: true, autobuffer: true) %>
-<div class="row">
+<div class="row marginbottom35">
   <% @songs.each do |song| %>
-
   <div class="col-lg-3 col-md-3 col-sm-4 portfolio-item">
     <a href="#">
-      <%= image_tag("music/"+song.artworkurl, size: "250x250", class: "img-responsive") %>
+      <%= link_to image_tag("music/"+song.artworkurl, size: "250x250", class: "img-responsive"), song_path(song) %>
     </a>
     <h3>
       <%= link_to(song.songtitle, song_path(song), class: "art-title white") %>

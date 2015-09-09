@@ -6,6 +6,8 @@ Rails.application.config.assets.version = '1.0'
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 Rails.application.config.assets.paths << "#{Rails.root}/app/assets/videos"
+Rails.application.config.assets.paths << "#{Rails.root}/app/assets/audios"
+Rails.application.config.assets.paths << "#{Rails.root}/app/assets/codes"
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.

@@ -1,0 +1,25 @@
+<div class="jumbotron">
+  <h1>Hello, world!</h1>
+  <p>...</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+</div>
+
+======================================
+
+<div id="amazingaudioplayer-1" style="display:block;position:relative;width:420px;height:auto;margin:0px auto 0px;">
+    <ul class="amazingaudioplayer-audios" style="display:none;">
+      <li data-artist="The Ways" data-title="Shal" data-album="Shal Single" data-info="" data-image="" data-duration="206">
+        <div class="amazingaudioplayer-source" data-src="/assets/TheWaysShal-b9f32f44b41e14878e7efab7c2e6e1a525029bc894302174ed97ea6b38776957.mp3" data-type="audio/mpeg" />
+      </li>
+    </ul>
+</div>
+
+
+    <script src="/assets/audioplayerengine/jquery.js"></script>
+    <script src="/assets/audioplayerengine/amazingaudioplayer.js"></script>
+    <script src="/assets/audioplayerengine/initaudioplayer-1.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/audioplayerengine/initaudioplayer-1.css">
+
+
+======================================
+<%= video_tag("rg_RanaMansour_BooyeEidi.mp4", size: "460x250", poster: "music/0001.jpg", controls: true, autobuffer: true) %>
