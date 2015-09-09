@@ -24,6 +24,20 @@ class SongsController < ApplicationController
     end
   end
 
+  def edit
+    @song = Song.find(params[:id])
+  end
+
+  def update
+    @song = Song.find(params[:id])
+    if @song.update(song_params)
+      flash[:success] = "Song was updated succesfully."
+      redirect_to song_path(@song)
+    else
+      render :edit
+    end
+  end
+
   private
 
     def song_params

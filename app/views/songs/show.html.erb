@@ -1,5 +1,5 @@
 <h5><%= link_to "Music Listing", songs_path, class: "btn btn-warning btn-small" %></h5>
-<h1 class="white art-title"><%= @song.songtitle %></h1>
+<%= render 'shared/page_title', title: @song.songtitle %>
 <div class="row">
   <div class="col-md-4 col-sm-4"><%= image_tag("music/"+@song.artworkurl, size: "450x450", class: "img-responsive") %></diV>
   <div class="col-md-4 col-sm-4">
@@ -13,4 +13,6 @@
   </div>
 
 </div>
+<h5><%= link_to "Edit Song", edit_song_path(@song), class: "btn btn-danger btn-small pull-right" %></h5>
+
 </div>

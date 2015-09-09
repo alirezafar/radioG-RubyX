@@ -1,6 +1,5 @@
 <%= render 'layouts/header1' %>
-<h3 class="white">Music Directory</h3>
-<hr/>
+<%= render 'shared/page_title', title: "Music Directory" %>
 <div class="row marginbottom35">
   <% @songs.each do |song| %>
   <div class="col-lg-3 col-md-3 col-sm-4 portfolio-item">

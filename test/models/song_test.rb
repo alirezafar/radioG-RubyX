@@ -20,5 +20,25 @@ test "Title length should not be too long" do
   assert_not @song.valid?
 end
 
+test "Format should be entered." do
+  @song.format = " "
+    assert_not @song.valid?
+end
+
+test "Filename should be entered." do
+  @song.filename = " "
+      assert_not @song.valid?
+end
+
+test "Artwork URL should be entered." do
+  @song.artworkurl = " "
+  assert_not @song.valid?
+end
+
+test "Artist ID should be entered." do
+  @song.artist_id = " "
+  assert_not @song.valid?
+end
+
 
 end
