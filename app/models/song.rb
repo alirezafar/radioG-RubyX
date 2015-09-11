@@ -4,5 +4,5 @@ class Song < ActiveRecord::Base
 	validates :format, presence: true
 	validates :artist_id, presence: true
 	validates :filename, presence: true
-	#mount_uploader :artworkurl, PictureUploader
+	mount_uploader :artworkurl, PictureUploader
 end
