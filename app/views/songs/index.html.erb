@@ -1,9 +1,9 @@
 <%= render 'layouts/header1' %>
 <%= render 'shared/page_title', title: "Music Directory" %>
 <%= will_paginate %>
-<div class="row marginbottom35">
+<div class="row">
   <% @songs.each do |song| %>
-  <div class="col-lg-3 col-md-3 col-sm-4 portfolio-item">
+  <div class="col-lg-3 col-md-3 col-sm-4 portfolio-item marginbottom35">
     <a href="#">
       <%= link_to image_tag(song.artworkurl.url, size: "250x250", class: "img-responsive"), song_path(song) if song.artworkurl? %>
     </a>
@@ -13,15 +13,7 @@
 
     <div class="pull-right">
       <p class="text-muted"><span class="bluetitle">Likes:</span>  <%= song.thumbs_up_total %> <span class="glyphicon glyphicon-heart"></span></p>
-      <p class="text-muted"><span class="bluetitle">Dislikes:</span>  <%= song.thumbs_down_total %> <span class="glyphicon glyphicon-heart"></span></p>
-
-      <%= link_to like_song_path(song, like: true), method: :post do %>
-       <i class="glyphicon glyphicon-thumbs-up"></i>
-      <% end %> &nbsp;
-      <%= link_to like_song_path(song, like: false), method: :post do %>
-       <i class="glyphicon glyphicon-thumbs-down"></i>
-      <% end %>
-
+      <p class="text-muted"><span class="bluetitle">Dislikes:</span>  <%= song.thumbs_down_total %> <span class="glyphicon glyphicon-remove"></span></p>
     </div>
     <p><span class="semi-white"><small> <%= time_ago_in_words(song.created_at) %> ago</small> </p>
     </div>
