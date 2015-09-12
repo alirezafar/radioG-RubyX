@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908165326) do
+ActiveRecord::Schema.define(version: 20150911223732) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "artsyname"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20150908165326) do
     t.string   "twitter"
     t.string   "likes"
     t.string   "followers"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.boolean  "like"
+    t.integer  "artist_id"
+    t.integer  "song_id"
+    t.integer  "video_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

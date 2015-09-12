@@ -1,8 +1,8 @@
 class SongsController < ApplicationController
 
   def index
-    @songs = Song.all
-  end
+    @songs = Song.paginate(page: params[:page], per_page: 12)
+    end
 
   def show
     @song = Song.find(params[:id])
@@ -37,7 +37,17 @@ class SongsController < ApplicationController
       render :edit
     end
   end
-
+def like
+  @song = Song.find(params[:id])
+  like = Like.create(like: params[:like], artist: Artist.first, song: @song)
+  if like.valid?
+    flash[:success] = "Your selection was successful"
+    redirect_to :back
+  else
+    flash[:danger] = "You can only like/dislike an artwork once"
+    redirect_to :back
+  end
+end
   private
 
     def song_params

@@ -1,5 +1,6 @@
 <%= render 'layouts/header1' %>
 <%= render 'shared/page_title', title: "Music Directory" %>
+<%= will_paginate %>
 <div class="row marginbottom35">
   <% @songs.each do |song| %>
   <div class="col-lg-3 col-md-3 col-sm-4 portfolio-item">
@@ -9,7 +10,22 @@
     <h3>
       <%= link_to(song.songtitle, song_path(song), class: "art-title white") %>
     </h3>
+
+    <div class="pull-right">
+      <p class="text-muted"><span class="bluetitle">Likes:</span>  <%= song.thumbs_up_total %> <span class="glyphicon glyphicon-heart"></span></p>
+      <p class="text-muted"><span class="bluetitle">Dislikes:</span>  <%= song.thumbs_down_total %> <span class="glyphicon glyphicon-heart"></span></p>
+
+      <%= link_to like_song_path(song, like: true), method: :post do %>
+       <i class="glyphicon glyphicon-thumbs-up"></i>
+      <% end %> &nbsp;
+      <%= link_to like_song_path(song, like: false), method: :post do %>
+       <i class="glyphicon glyphicon-thumbs-down"></i>
+      <% end %>
+
+    </div>
     <p><span class="semi-white"><small> <%= time_ago_in_words(song.created_at) %> ago</small> </p>
     </div>
     <% end %>
   </div>
+
+  <%= will_paginate %>
