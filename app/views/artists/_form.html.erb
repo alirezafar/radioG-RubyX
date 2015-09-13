@@ -1,0 +1,22 @@
+<%= render 'shared/errors', obj: @artist %>
+
+
+<div class="row">
+<div class="well col-md-10 col-md-offset-1">
+
+<%= form_for @artist do |f| %>
+
+<%= f.label :ArtistName %>
+<%= f.text_field :artsyname %>
+
+<%= f.label :Email %>
+<%= f.email_field :email %>
+
+<%= f.label :Password %>
+<%= f.password_field :password %>
+
+<%= f.submit(@artist.new_record? ? 'Register' : 'Edit Profile', class: "btn btn-success") %>
+
+<% end %>
+</div>
+</div>

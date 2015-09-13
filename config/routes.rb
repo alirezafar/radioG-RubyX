@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   end
   resources :videos
 
+  resources :artists, except: [:new]
+
+  get '/register', to: 'artists#new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
