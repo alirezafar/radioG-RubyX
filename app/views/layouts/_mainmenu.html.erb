@@ -5,11 +5,18 @@
 			<h5>Alternative Voice of Iran</h5>
 		</div>
 	</a>
-		<div class="nav-item"><%= link_to "Home", root_path, class:"menuitem" %></div>
-		<div class="nav-item">Music Video</div>
-		<div class="nav-item"><%= link_to "Single Music", songs_path, class:"menuitem" %></div>
-		<div class="nav-item"><%= link_to "Submit Music", new_song_path, class:"menuitem" %></div>
-		<div class="nav-item">Contact Radio</div>
+	<div class="nav-item"><%= link_to "Home", root_path, class:"menuitem" %></div>
+	<div class="nav-item">Music Video</div>
+	<div class="nav-item"><%= link_to "Single Music", songs_path, class:"menuitem" %></div>
+	<div class="nav-item">Contact Radio</div>
 
-	</div>
+	<% if logged_in? %>
+	<div class="nav-item"><%= link_to "Submit Music", new_song_path, class:"menuitem" %></div>
+	<div class="nav-item"><%= link_to "Log out", logout_path, class:"menuitem" %></div>
+	<% else %>
+	<div class="nav-item"><%= link_to "Register", register_path, class:"menuitem" %></div>
+	<div class="nav-item"><%= link_to "Login", login_path, class:"menuitem" %></div>
+	<% end %>
+
+</div>
 </header>

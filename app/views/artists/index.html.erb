@@ -1,0 +1,12 @@
+<%= render 'layouts/header1' %>
+<%= render 'shared/page_title', title: "Artists Directory" %>
+<%= will_paginate %>
+<div class="row">
+  <% @artists.each do |artist| %>
+  <div class="col-lg-3 col-md-3 col-sm-4 portfolio-item marginbottom35">
+   <h5> <%= link_to(artist.artsyname, artist_path(artist)) %> </h5>
+  </div>
+  <% end %>
+</div>
+
+  <%= will_paginate %>
