@@ -1,0 +1,19 @@
+<%= render 'shared/page_title', title: "Recent Songs" %>
+<div class="row">
+  <% @songs.each do |song| %>
+  <div class="col-lg-3 col-md-3 col-sm-4 portfolio-item marginbottom35">
+    <a href="#">
+      <%= link_to image_tag(song.artworkurl.url, size: "250x250", class: "img-responsive"), song_path(song) if song.artworkurl? %>
+    </a>
+    <h3>
+      <%= link_to(song.songtitle, song_path(song), class: "art-title white") %>
+    </h3>
+
+    <div class="pull-right">
+      <p class="text-muted"><span class="bluetitle">Likes:</span>  <%= song.thumbs_up_total %> <span class="glyphicon glyphicon-heart"></span></p>
+      <p class="text-muted"><span class="bluetitle">Dislikes:</span>  <%= song.thumbs_down_total %> <span class="glyphicon glyphicon-remove"></span></p>
+    </div>
+    <p><span class="semi-white"><small> <%= time_ago_in_words(song.created_at) %> ago</small> </p>
+    </div>
+    <% end %>
+  </div>

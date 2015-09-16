@@ -6,8 +6,9 @@
 		</div>
 	</a>
 	<div class="nav-item"><%= link_to "Home", root_path, class:"menuitem" %></div>
-	<div class="nav-item">Music Video</div>
+	<div class="nav-item"><%= link_to "Music Video", videos_path, class:"menuitem" %></div>
 	<div class="nav-item"><%= link_to "Single Music", songs_path, class:"menuitem" %></div>
+<div class="nav-item"><%= link_to "Artists", artists_path, class:"menuitem" %></div>
 	<div class="nav-item">Contact Radio</div>
 
 	<% if logged_in? %>

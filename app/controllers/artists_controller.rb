@@ -1,7 +1,7 @@
 class ArtistsController < ApplicationController
 
   def index
-    @artists = Artist.paginate(page: params[:page], per_page: 3)
+    @artists = Artist.paginate(page: params[:page], per_page: 12)
   end
 
   def new
@@ -37,14 +37,14 @@ class ArtistsController < ApplicationController
   def show
 
     @artist = Artist.find(params[:id])
-    @songs = @artist.songs.paginate(page: params[:page], per_page: 4)
+    @songs = @artist.songs.paginate(page: params[:page], per_page: 8)
 
 
   end
 
 private
 def artist_params
-  params.require(:artist).permit(:artsyname, :email, :password)
+  params.require(:artist).permit(:artsyname, :firstname, :lastname, :origin, :websiteurl, :email, :password, :facebook, :instagram, :twitter)
 end
 
 end

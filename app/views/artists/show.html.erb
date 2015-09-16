@@ -1,10 +1,17 @@
 <%= render 'shared/page_title', title: @artist.artsyname %>
 <div class="row">
-<ul>
-<li>Name: <%= @artist.artsyname %></li>
-<li>Email: <%= @artist.email %></li>
-<li>Facebook: <%= @artist.facebook %></li>
-</ul>
+
+  <p class="text-muted"><span class="bluetitle">Stage Name:</span> <%= @artist.artsyname %></p>
+  <p class="text-muted"><span class="bluetitle">First Name:</span> <%= @artist.firstname %></p>
+  <p class="text-muted"><span class="bluetitle">Last Name:</span> <%= @artist.lastname %></p>
+  <p class="text-muted"><span class="bluetitle">Origin:</span> <%= @artist.origin %></p>
+  <p class="text-muted"><span class="bluetitle">Email:</span> <%= @artist.email %></p>
+  <p class="text-muted"><span class="bluetitle">Website:</span> <%= @artist.websiteurl %></p>
+  <p class="text-muted"><span class="bluetitle">Facebook:</span> <%= @artist.facebook %></p>
+  <p class="text-muted"><span class="bluetitle">Instagram:</span> <%= @artist.instagram %></p>
+  <p class="text-muted"><span class="bluetitle">Twitter:</span> <%= @artist.twitter %></p>
+  <p class="text-muted"><span class="bluetitle">Likes:</span> <%= @artist.thumbs_up_total %></p>
+    <p class="text-muted"><span class="bluetitle">Artist ID:</span> <%= @artist.id %></p>
 </div>
 
 <div class="row">

@@ -1,0 +1,11 @@
+<h5><%= link_to "Music Videos", videos_path, class: "btn btn-warning btn-small" %></h5>
+<%= render 'shared/page_title', title: @video.title %>
+<div class="row">
+  <div class="col-md-4 col-sm-4"><%= image_tag(@video.artwork.url, size: "550x550", class: "img-responsive") if @video.artwork? %></diV>
+  <div class="col-md-4 col-sm-4">
+    <p class="text-muted"><span class="bluetitle">Artist:</span> <%= @video.artist.artsyname %></p>
+    <p class="text-muted"><span class="bluetitle">Facebook:</span> <%= @video.artist.facebook %></p>
+    <p class="text-muted"><span class="bluetitle">Followers:</span>  <%= @video.artist.followers %></p>
+  </div>
+</div>
+</div>
