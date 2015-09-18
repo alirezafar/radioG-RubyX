@@ -9,3 +9,7 @@ Artist.create(id: '1', artsyname: 'Faravaz', facebook: 'facebook.com/faravaz', l
 Artist.create(id: '2', artsyname: 'Madmazel', facebook: 'facebook.com/faravaz', likes: '23000', followers: '12000')
 Artist.create(id: '3', artsyname: 'Hooman', facebook: 'facebook.com/faravaz', likes: '23000', followers: '12000')
 Artist.create(id: '4', artsyname: 'Mohsen', facebook: 'facebook.com/faravaz', likes: '23000', followers: '12000')
+
+Video.create(id: '1', title: 'Avalin', artwork: '001.png', format: 'mp4', url: 'rg_RanaMansour_BooyeEidi.mp4', artist_id: '1')
+Video.create(id: '2', title: 'Vasatin', artwork: '002.jpg', format: 'mp4', url: 'rg_RanaMansour_BooyeEidi.mp4', artist_id: '2')
+Video.create(id: '3', title: 'Akharin', artwork: '003.jpg', format: 'mp4', url: 'rg_RanaMansour_BooyeEidi.mp4', artist_id: '3')

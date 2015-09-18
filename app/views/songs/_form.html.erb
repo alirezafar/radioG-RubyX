@@ -6,24 +6,25 @@
 
 <%= form_for(@song, html: { multipart: true }) do |f| %>
 
-<%= f.label :Title %>
+<%= f.label :Song_Title %>
 <%= f.text_field :songtitle %>
 
-<%= f.label :Format %>
+<%= f.label :Format %> (e.g. mp3, wav)
 <%= f.text_field :format %>
 
-<%= f.label :ReleaseDate %>
+<%= f.label :Release_Date %>
 <%= f.text_field :releasedate %>
 
-<%= f.label :Filename %>
+<%= f.label :Filename %> (e.g. TheWaysShal.mp3)
 <%= f.text_field :filename %>
 
-<%= f.label :Artist %>
+<%= f.label :Artist_ID %> (e.g. 1)
 <%= f.text_field :artist_id %>
 
 <%= f.label :Lyric %>
 <%= f.text_area :lyric, rows: 10 %>
 <span class="picture">
+	Upload album cover (jpg, png or gif only):
 <%= f.file_field :artworkurl, accept: 'image/jpeg,image/gif,image/png' %>
 </span>
 <%= f.submit(@song.new_record? ? 'Submit Song' : 'Edit Song', class: "btn btn-success") %>
