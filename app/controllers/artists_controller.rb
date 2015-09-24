@@ -1,5 +1,8 @@
 class ArtistsController < ApplicationController
 
+  before_action :set_artist, only: [:edit, :update, :show]
+  before_action :require_same_user, only: [:edit, :update]
+
   def index
     @artists = Artist.paginate(page: params[:page], per_page: 12)
   end
@@ -21,14 +24,13 @@ class ArtistsController < ApplicationController
   end
 
   def edit
-    @artist = Artist.find(params[:id])
+
   end
 
   def update
-    @artist = Artist.find(params[:id])
     if @artist.update(artist_params)
       flash[:success] = "Profile has been updated successfully"
-      redirect_to songs_path
+      redirect_to artist_path(@artist)
     else
       render 'edit'
     end
@@ -36,15 +38,25 @@ class ArtistsController < ApplicationController
 
   def show
 
-    @artist = Artist.find(params[:id])
     @songs = @artist.songs.paginate(page: params[:page], per_page: 8)
 
 
   end
 
-private
-def artist_params
-  params.require(:artist).permit(:artsyname, :firstname, :lastname, :origin, :websiteurl, :email, :password, :facebook, :instagram, :twitter)
-end
+  private
+  def artist_params
+    params.require(:artist).permit(:artsyname, :firstname, :lastname, :origin, :websiteurl, :email, :password, :facebook, :instagram, :twitter)
+  end
+
+  def set_artist
+    @artist = Artist.find(params[:id])
+  end
+
+  def require_same_user
+    if current_user != @artist
+      flash[:danger] = "You can only edit your own profile"
+      redirect_to root_path
+    end
+  end
 
 end

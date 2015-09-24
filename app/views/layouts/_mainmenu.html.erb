@@ -1,4 +1,4 @@
-<header class="navbar navbar-fixed-top nav-dark">
+<header class="nav navbar navbar-fixed-top nav-dark">
 	<div class="container">
 		<a href="<%= root_path %>"><div id="logo">
 			<h3>Radio Gramophone</h3>
@@ -8,12 +8,28 @@
 	<div class="nav-item"><%= link_to "Home", root_path, class:"menuitem" %></div>
 	<div class="nav-item"><%= link_to "Music Video", videos_path, class:"menuitem" %></div>
 	<div class="nav-item"><%= link_to "Single Music", songs_path, class:"menuitem" %></div>
-<div class="nav-item"><%= link_to "Artists", artists_path, class:"menuitem" %></div>
+	<div class="nav-item"><%= link_to "Artists", artists_path, class:"menuitem" %></div>
 	<div class="nav-item">Contact Radio</div>
 
+
 	<% if logged_in? %>
-	<div class="nav-item"><%= link_to "Submit Music", new_song_path, class:"menuitem" %></div>
-	<div class="nav-item"><%= link_to "Log out", logout_path, class:"menuitem" %></div>
+	
+	<ul class="nav-item">
+		<li class="dropdown">
+
+			<%= link_to '#', class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button" do %>
+			<%= current_user.artsyname %> <b class="caret"></b>
+			<% end %>
+			<ul class="dropdown-menu">
+				<li><%= link_to "Submit Music", new_song_path, class:"menuitem" %></li>
+				<li class="divider"></li>
+				<li><%= link_to "View Profile", artist_path(current_user) %></li>
+				<li><%= link_to "Edit Profile", edit_artist_path(current_user) %></li>
+				<li class="divider"></li>
+				<li><%= link_to "Log out", logout_path, class:"menuitem" %></li>
+			</ul>
+		</li>
+	</ul>
 	<% else %>
 	<div class="nav-item"><%= link_to "Register", register_path, class:"menuitem" %></div>
 	<div class="nav-item"><%= link_to "Login", login_path, class:"menuitem" %></div>

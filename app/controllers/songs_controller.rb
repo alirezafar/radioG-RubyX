@@ -1,11 +1,15 @@
 class SongsController < ApplicationController
 
+  before_action :set_song, only: [:edit, :update, :show, :like]
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update]
+
   def index
     @songs = Song.paginate(page: params[:page], per_page: 12)
-    end
+  end
 
   def show
-    @song = Song.find(params[:id])
+    #set_song is happening here
   end
 
   def new
@@ -14,7 +18,7 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
-    #@song.artist = Artist.find(1)
+    @song.artist = current_user
 
     if @song.save
       flash[:success] = "Song Submmited Successfully."
@@ -25,11 +29,10 @@ class SongsController < ApplicationController
   end
 
   def edit
-    @song = Song.find(params[:id])
+    #set_song is happening here
   end
 
   def update
-    @song = Song.find(params[:id])
     if @song.update(song_params)
       flash[:success] = "Song was updated succesfully."
       redirect_to song_path(@song)
@@ -37,9 +40,9 @@ class SongsController < ApplicationController
       render :edit
     end
   end
-def like
-  @song = Song.find(params[:id])
-  like = Like.create(like: params[:like], artist: Artist.first, song: @song)
+  def like
+  #set_song is happening here
+  like = Like.create(like: params[:like], artist: current_user, song: @song)
   if like.valid?
     flash[:success] = "Your selection was successful"
     redirect_to :back
@@ -48,10 +51,22 @@ def like
     redirect_to :back
   end
 end
-  private
+private
 
-    def song_params
-      params.require(:song).permit(:songtitle, :format, :releasedate, :artworkurl, :filename, :artist_id, :lyric)
-    end
+def song_params
+  params.require(:song).permit(:songtitle, :format, :releasedate, :artworkurl, :filename, :artist_id, :lyric)
+end
+
+def set_song
+  @song = Song.find(params[:id])
+end
+
+def require_same_user
+  if current_user != @song.artist
+    flash[:danger] = "You can only edit your own song."
+    redirect_to songs_path
+  end 
+
+end
 
 end
