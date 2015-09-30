@@ -1,6 +1,10 @@
 class Song < ActiveRecord::Base
 	belongs_to :artist
 	has_many :likes
+	has_many :song_genres
+	has_many :genres, through: :song_genres
+	has_many :song_albums
+	has_many :albums, through: :song_albums
 	validates :songtitle, presence: true, length: { minimum:3, maximum: 40 }
 	validates :format, presence: true
 	validates :artist_id, presence: true
