@@ -1,5 +1,13 @@
 <%= render 'layouts/header1' %>
 <%= render 'shared/page_title', title: "Music Directory" %>
+<ul class="nav nav-tabs">
+  <li class="active">
+    <%= link_to "Songs", songs_path %>
+  </li>
+  <li>
+    <%= link_to "Artists", artists_path %>
+  </li>
+</ul>
 <%= will_paginate %>
 <div class="row">
   <% @songs.each do |song| %>
@@ -16,8 +24,8 @@
       <p class="text-muted"><span class="bluetitle">Dislikes:</span>  <%= song.thumbs_down_total %> <span class="glyphicon glyphicon-remove"></span></p>
     </div>
     <p><span class="semi-white"><small> <%= time_ago_in_words(song.created_at) %> ago</small> </p>
-    </div>
-    <% end %>
   </div>
+  <% end %>
+</div>
 
-  <%= will_paginate %>
+<%= will_paginate %>

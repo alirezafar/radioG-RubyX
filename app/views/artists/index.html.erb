@@ -1,5 +1,13 @@
 <%= render 'layouts/header1' %>
 <%= render 'shared/page_title', title: "Artists Directory" %>
+<ul class="nav nav-tabs">
+  <li >
+    <%= link_to "Songs", songs_path %>
+  </li>
+  <li class="active">
+    <%= link_to "Artists", artists_path %>
+  </li >
+</ul>
 <%= will_paginate %>
 <div class="row">
   <% @artists.each do |artist| %>
