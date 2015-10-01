@@ -1,5 +1,5 @@
 <%= render 'layouts/header1' %>
-<%= render 'shared/page_title', title: "Music Directory" %>
+<%= render 'shared/page_title', title: "Music in " + @album.name + " Album" %>
 <ul class="nav nav-tabs">
   <li class="active">
     <%= link_to "Songs", songs_path %>
@@ -8,9 +8,9 @@
     <%= link_to "Artists", artists_path %>
   </li>
 </ul>
-<%= will_paginate %>
+<%= will_paginate @songs %>
 <div class="row">
-  <% @songs.each do |song| %>
+  <% @album.songs.each do |song| %>
   <div class="col-lg-3 col-md-3 col-sm-4 portfolio-item marginbottom35">
     <a href="#">
       <%= link_to image_tag(song.artworkurl.url, size: "250x250", class: "img-responsive"), song_path(song) if song.artworkurl? %>
@@ -30,4 +30,4 @@
   <% end %>
 </div>
 
-<%= will_paginate %>
+<%= will_paginate @songs %>

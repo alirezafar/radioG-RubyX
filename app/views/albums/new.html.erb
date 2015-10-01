@@ -1,0 +1,18 @@
+<%= render 'shared/page_title', title: "Create New Album" %>
+<%= render 'shared/errors', obj: @album %>
+
+
+<div class="row">
+<div class="well col-md-10 col-md-offset-1">
+
+<%= form_for @album do |f| %>
+
+<%= f.label :Album_Title %>
+<%= f.text_field :name %>
+
+
+<%= f.submit 'Create Album', class: "btn btn-success" %>
+
+<% end %>
+</div>
+</div>

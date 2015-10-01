@@ -9,13 +9,30 @@
 	<div class="nav-item"><%= link_to "Music Video", videos_path, class:"menuitem" %></div>
 	<div class="nav-item"><%= link_to "Single Music", songs_path, class:"menuitem" %></div>
 	<div class="nav-item"><%= link_to "Artists", artists_path, class:"menuitem" %></div>
+
+
+<div class="nav-item">
+		<div class="dropdown">
+
+			<%= link_to '#', class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button" do %>
+			Genres <b class="caret"></b>
+			<% end %>
+			<ul class="dropdown-menu">
+				<%= Genre.all.each do |genre| %>
+				<li><%= link_to genre.name, genre_path(genre), class:"menuitem" %></li>
+				<% end %>
+			</ul>
+		</div>
+</div>
+
+
 	<div class="nav-item">Contact Radio</div>
 
 
 	<% if logged_in? %>
 	
-	<ul class="nav-item">
-		<li class="dropdown">
+	<div class="nav-item">
+		<div class="dropdown">
 
 			<%= link_to '#', class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button" do %>
 			<%= current_user.artsyname %> <b class="caret"></b>
@@ -28,8 +45,8 @@
 				<li class="divider"></li>
 				<li><%= link_to "Log out", logout_path, class:"menuitem" %></li>
 			</ul>
-		</li>
-	</ul>
+		</div>
+	</div>
 	<% else %>
 	<div class="nav-item"><%= link_to "Register", register_path, class:"menuitem" %></div>
 	<div class="nav-item"><%= link_to "Login", login_path, class:"menuitem" %></div>

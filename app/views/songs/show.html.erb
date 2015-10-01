@@ -2,31 +2,33 @@
 <%= render 'shared/page_title', title: @song.songtitle %>
 <div class="row">
   <div class="col-md-4 col-sm-4"><%= image_tag(@song.artworkurl.url, size: "450x450", class: "img-responsive") if @song.artworkurl? %></diV>
-  <div class="col-md-4 col-sm-4">
-    <p class="text-muted"><span class="bluetitle">Artist:</span> <%= @song.artist.artsyname %></p>
-    <p class="text-muted"><span class="bluetitle">Facebook:</span> <%= @song.artist.facebook %></p>
-    <p class="text-muted"><span class="bluetitle">Likes:</span>  <%= @song.thumbs_up_total %> <span class="glyphicon glyphicon-heart"></span></p>
-    <p class="text-muted"><span class="bluetitle">Dislikes:</span>  <%= @song.thumbs_down_total %> <span class="glyphicon glyphicon-remove"></span></p>
-    <p class="text-muted"><span class="bluetitle">Followers:</span>  <%= @song.artist.followers %></p>
+    <div class="col-md-4 col-sm-4">
+      <p class="text-muted"><span class="bluetitle">Artist:</span> <%= @song.artist.artsyname %></p>
+      <p class="text-muted"><span class="bluetitle">Facebook:</span> <%= @song.artist.facebook %></p>
+      <p class="text-muted"><span class="bluetitle">Likes:</span>  <%= @song.thumbs_up_total %> <span class="glyphicon glyphicon-heart"></span></p>
+      <p class="text-muted"><span class="bluetitle">Dislikes:</span>  <%= @song.thumbs_down_total %> <span class="glyphicon glyphicon-remove"></span></p>
+      <p class="text-muted"><span class="bluetitle">Followers:</span>  <%= @song.artist.followers %></p>
+      <p class="text-muted"><span class="bluetitle">Genre:</span> <%= render @song.genres %> </p>
+      <p class="text-muted"><span class="bluetitle">Album:</span> <%= render @song.albums %> </p>
 
-  <div class="pull-left">
-    <%= @song.thumbs_up_total %>
-    <%= link_to like_song_path(@song, like: true), method: :post do %>
-     <i class="bluetitle glyphicon glyphicon-thumbs-up icon-big"></i>
-    <% end %> &nbsp;&nbsp;&nbsp;
-    <%= @song.thumbs_down_total %>
-    <%= link_to like_song_path(@song, like: false), method: :post do %>
-     <i class="bluetitle glyphicon glyphicon-thumbs-down icon-big"></i>
-    <% end %>
+      <div class="pull-left">
+        <%= @song.thumbs_up_total %>
+        <%= link_to like_song_path(@song, like: true), method: :post do %>
+        <i class="bluetitle glyphicon glyphicon-thumbs-up icon-big"></i>
+        <% end %> &nbsp;&nbsp;&nbsp;
+        <%= @song.thumbs_down_total %>
+        <%= link_to like_song_path(@song, like: false), method: :post do %>
+        <i class="bluetitle glyphicon glyphicon-thumbs-down icon-big"></i>
+        <% end %>
 
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-4">You are listening to:
+      <%= audio_tag(@song.filename, autoplay: false, controls: true) %>
+    </div>
   </div>
-  </div>
-  <div class="col-md-4 col-sm-4">You are listening to:
-  <%= audio_tag(@song.filename, autoplay: false, controls: true) %>
-  </div>
-</div>
-<% if logged_in? and @song.artist == current_user %>
-<h5><%= link_to "Edit Song", edit_song_path(@song), class: "btn btn-danger btn-small pull-right" %></h5>
-<% end %>
+  <% if logged_in? and @song.artist == current_user %>
+  <h5><%= link_to "Edit Song", edit_song_path(@song), class: "btn btn-danger btn-small pull-right" %></h5>
+  <% end %>
 
 </div>
