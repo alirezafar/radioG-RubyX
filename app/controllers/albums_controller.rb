@@ -1,5 +1,8 @@
 class AlbumsController < ApplicationController
 
+	before_action :require_user, except: [:show]
+
+
 	def show
 		@album = Album.find(params[:id])
 		@songs = @album.songs.paginate(page: params[:page], per_page: 16)

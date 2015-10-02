@@ -1,7 +1,8 @@
 class SongsController < ApplicationController
 
   before_action :set_song, only: [:edit, :update, :show, :like]
-  before_action :require_user, except: [:show, :index]
+  before_action :require_user, except: [:show, :index, :like]
+  before_action :require_user_like, only: [:like]
   before_action :require_same_user, only: [:edit, :update]
 
   def index
@@ -54,7 +55,7 @@ end
 private
 
 def song_params
-  params.require(:song).permit(:songtitle, :format, :releasedate, :artworkurl, :filename, :artist_id, :lyric)
+  params.require(:song).permit(:songtitle, :format, :releasedate, :artworkurl, :filename, :artist_id, :lyric, genre_ids: [], album_ids: [])
 end
 
 def set_song
@@ -67,6 +68,13 @@ def require_same_user
     redirect_to songs_path
   end 
 
+end
+
+def require_user_like
+    if !logged_in?
+      flash[:danger] = "You must be logged in."
+      redirect_to :back
+    end
 end
 
 end

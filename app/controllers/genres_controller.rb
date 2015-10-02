@@ -1,5 +1,7 @@
 class GenresController < ApplicationController
 
+  before_action :require_user, except: [:show]
+
 def show
 	@genre = Genre.find(params[:id])
 	@songs = @genre.songs.paginate(page: params[:page], per_page: 16)
